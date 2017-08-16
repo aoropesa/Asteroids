@@ -1,4 +1,5 @@
 var shipHealth = 1000;
+var audio = new Audio('explosion.wav');
 var shipBox = document.getElementById("ship").getBoundingClientRect();
 // every cycle, check & update status of each moving asteroid
 var arrayOfMovingAsteroids = document.getElementsByClassName("moving");
@@ -26,8 +27,9 @@ var arrayOfMovingAsteroids = document.getElementsByClassName("moving");
          document.getElementById("healthCounter").innerHTML = "GAME OVER";
          document.getElementById("ship").remove();  // ship disappears
        }
-       var audio = new Audio('explosion.wav');  // load explosion sound (creative commons license: https://www.freesound.org/people/Veiler/sounds/264031/)
-       audio.play();  // play explosion sound
+        // load explosion sound (creative commons license: https://www.freesound.org/people/Veiler/sounds/264031/)
+        audio.currentTime = 0;
+        audio.play();  // play explosion sound
        arrayOfMovingAsteroids[i].remove();  // asteroid disappears
      }
   }
